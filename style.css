@@ -187,6 +187,30 @@ h4.schedule-day-heading {
     cursor: pointer;
 }
 
+/* Add this to your existing style.css file */
+#event-modal {
+    z-index: 1000;
+}
+
+.logo-container {
+    perspective: 1000px;
+}
+
+.logo-3d {
+    transition: transform 0.5s, box-shadow 0.5s;
+    transform-style: preserve-3d;
+}
+
+.logo-3d:hover {
+    transform: scale(1.2) translateZ(50px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+.logo-3d:hover {
+    transform: rotateY(20deg) rotateX(10deg) scale(1.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
 /* In style.css */
 
 /* 12. Footer */
@@ -278,4 +302,147 @@ footer.bg-signature-blue-dark { background-color: var(--signature-blue-dark); }
 
 .hover-zoom:hover {
     transform: scale(1.05); /* Adjust the scale value for more or less zoom */
+}
+.mobile-menu-styles {
+    border-top: 1px solid rgba(66, 53, 41, 0.1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 767px) {
+    .signature-heading {
+        font-size: 1.5rem; /* Adjust font size to prevent overlap */
+    }
+    header nav .hidden {
+        display: none;
+    }
+
+    .hero-logo {
+        height: 50px; /* Make hero logos smaller */
+    }
+
+    .signature-heading-main {
+        font-size: 2.25rem; /* Further reduce main heading */
+        line-height: 1.2;
+    }
+
+    #schedule .grid {
+        grid-template-columns: 1fr; /* Stack schedule days */
+    }
+
+    #highlights .grid {
+        grid-template-columns: 1fr; /* Stack highlight cards */
+    }
+    
+    #contribution-bands .grid {
+        grid-template-columns: 1fr; /* 1 card per row */
+    }
+
+    #gallery-grid {
+        grid-template-columns: 1fr; /* 1 gallery item per row */
+    }
+}
+
+/* 14. Reusable Hover Zoom Effect */
+.hover-zoom {
+    transition: transform 0.3s ease-in-out;
+}
+
+.hover-zoom:hover {
+    transform: scale(1.05); /* Adjust the scale value for more or less zoom */
+}
+#registration {
+    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('images/background.jpg');
+    background-size: cover;
+    position: relative;
+}
+
+#registration::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('data:image/svg+xml,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g fill="%23234C6A" fill-opacity="0.1"><rect x="50" width="50" height="50"/><rect y="50" width="50" height="50"/></g></svg>');
+    z-index: 1;
+}
+
+#registration > .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* --- PRELOADER STYLES --- */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.75s ease;
+}
+
+#preloader.preloader-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.preloader-images {
+    position: relative;
+    width: 90vw;
+    max-width: 400px;
+    height: 60vw;
+    max-height: 270px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.preloader-images img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    animation: image-fade 2s infinite;
+}
+
+.preloader-images img:nth-child(1) { animation-delay: 0s; }
+.preloader-images img:nth-child(2) { animation-delay: 0.5s; }
+.preloader-images img:nth-child(3) { animation-delay: 1s; }
+.preloader-images img:nth-child(4) { animation-delay: 1.5s; }
+.preloader-images img:nth-child(5) { animation-delay: 2s; }
+.preloader-images img:nth-child(6) { animation-delay: 2.5s; }
+
+
+@keyframes image-fade {
+    0% { opacity: 0; transform: scale(1.05); }
+    5% { opacity: 1; transform: scale(1); }
+    15% { opacity: 1; transform: scale(1); }
+    20% { opacity: 0; transform: scale(1.05); }
+    100% { opacity: 0; }
+}
+
+.preloader-text {
+    font-family: var(--font-heading);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('data:image/svg+xml,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g fill="%23234C6A" fill-opacity="0.1"><rect x="50" width="50" height="50"/><rect y="50" width="50" height="50"/></g></svg>');
+    z-index: 1;
+}
+
+#schedule {
+    background-color: var(--signature-blue);
 }

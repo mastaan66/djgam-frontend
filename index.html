@@ -16,24 +16,53 @@
 </head>
 
 <body class="signature-theme">
+    <div id="preloader">
+        <div class="preloader-images">
+            <img src="./images/Day1-2023/one.JPG" alt="Preloader Image">
+            <img src="./images/Day1-2023/two.JPG" alt="Preloader Image">
+            <img src="./images/Day1-2023/three.JPG" alt="Preloader Image">
+            <img src="./images/Day1-2023/four.JPG" alt="Preloader Image">
+            <img src="./images/Day1-2023/five.JPG" alt="Preloader Image">
+            <img src="./images/Day1-2023/six.JPG" alt="Preloader Image">
+        </div>
+        <div class="preloader-text">Loading Sweet Memories...</div>
+    </div>
+
     <div class="bg-cover bg-center bg-no-repeat" style="background-image: url('./images/jntuh.jpg');">
         <header class="bg-signature-beige shadow-md sticky top-0 z-40">
             <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-                <div class="flex items-center space-x-4">
-                    <img src="images/dala.png" alt="University Logo" class="h-[90px] w-[95px] rounded-[50px]">
-                    <h1 class="font-extrabold text-3xl text-gray-900 signature-heading">DJGAM</h1>
+                <div class="flex items-center space-x-4 logo-container">
+                    <img src="images/dala.png" alt="University Logo" class="cursor-pointer h-[90px] w-[95px] rounded-[50px] logo-3d" id="logo">
+                    <h1 class="font-extrabold text-3xl text-gray-900 signature-heading cursor-pointer">DJGAM</h1>
                 </div>
-                <div class="hidden md:flex space-x-4 items-center">
+                <div class="hidden lg:flex space-x-4 items-center">
                     <a href="#home" class="signature-link">Home</a>
                     <a href="#about" class="signature-link">About</a>
+                    <a href="#registration" class="signature-link">Register</a>
                     <a href="#schedule" class="signature-link">Schedule</a>
                     <a href="#highlights" class="signature-link">Highlights</a>
-                    <a href="#gallery" class="signature-link">Gallery</a>
                     <a href="#contribution-bands" class="signature-link">Bands</a>
                     <a href="#contribute" class="signature-button">Contribute</a>
-                    <a href="#contact" class="signature-button">Contact</a>
+                    <a href="#contact" class="signature-button ml-4">Contact</a>
+                </div>
+                <div class="lg:hidden flex items-center">
+                    <button id="hamburger-button" class="text-gray-900 focus:outline-none">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-4 6h16"></path>
+                        </svg>
+                    </button>
                 </div>
             </nav>
+            <div id="mobile-menu" class="hidden lg:hidden bg-signature-beige mobile-menu-styles">
+                <a href="#home" class="block py-3 px-6 text-lg signature-link">Home</a>
+                <a href="#about" class="block py-3 px-6 text-lg signature-link">About</a>
+                <a href="#registration" class="block py-3 px-6 text-lg signature-link">Register</a>
+                <a href="#schedule" class="block py-3 px-6 text-lg signature-link">Schedule</a>
+                <a href="#highlights" class="block py-3 px-6 text-lg signature-link">Highlights</a>
+                <a href="#contribution-bands" class="block py-3 px-6 text-lg signature-link">Bands</a>
+                <a href="#contribute" class="block py-3 px-6 text-lg signature-button">Contribute</a>
+                <a href="#contact" class="block py-3 px-6 text-lg signature-button mt-2">Contact</a>
+            </div>
         </header>
 
         <section id="home" class="text-center py-20 md:py-32 bg-[#234C6A]/50">
@@ -70,9 +99,18 @@
         </section>
     </div>
 
+    <section id="registration" class="py-16 md:py-24">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="text-4xl font-bold text-center mb-12 signature-heading">Registration</h3>
+                <div class="text-center mt-12">
+                    <a href="https://uaa.jntuh.ac.in/events/13987" class="bg-signature-blue text-white font-bold py-3 px-8 rounded-full hover:bg-blue-700 transition duration-300">Click to Register</a>
+                </div>
+        </div>
+    </section>
+
     <section id="schedule" class="bg-signature-blue py-16 md:py-24">
         <div class="container mx-auto px-6">
-            <h3 class="text-4xl font-bold text-center mb-12 signature-heading">Event Schedule</h3>
+            <h3 class="text-4xl font-bold text-center mb-12 signature-heading text-white">Event Schedule</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div class="day-column">
                     <h4 class="text-3xl text-center mb-2 schedule-day-heading">Day 1 : Diamond Jubilee</h4>
@@ -110,7 +148,7 @@
                     <p class="text-center mb-6 schedule-day-subtitle text-xl">22nd November 2025</p>
                     <div class="space-y-4">
                         <div class="flex items-start space-x-4"><span class="schedule-arrow">&rarr;</span>
-                            <div class="schedule-item-text"> Inauguration - Address by Chief Guest and Dignitaries </div>
+                            <div class="schedule-item-text"> Inauguration of Diamond Jubilee of UCESTH - Address by Chief Guest and Dignitaries </div>
                         </div>
                         <div class="flex items-start space-x-4"><span class="schedule-arrow">&rarr;</span>
                             <div class="schedule-item-text"> Open Mic</div>
@@ -185,16 +223,7 @@
             </div>
         </div>
     </section>
-
-    <section id="gallery" class="bg-signature-blue py-16 md:py-24">
-        <div class="container mx-auto px-6">
-            <h3 class="text-4xl font-bold text-center mb-12 signature-heading">Event Gallery</h3>
-            <p id="gallery-loading-message" class="text-center text-white text-lg">Loading gallery...</p>
-            <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            </div>
-        </div>
-    </section>
-
+    
     <div id="lightbox" class="lightbox-hidden lightbox-backdrop">
         <div class="lightbox-content">
             <button id="close-btn" class="lightbox-button close-btn">&times;</button>
@@ -382,9 +411,9 @@
     </div>
 
 
-    <footer class="bg-signature-blue-dark py-8">
-        <div class="container mx-auto text-center text-white">
-            <h4 class="text-2xl font-bold mb-6 text-white" style="text-shadow: none;">Proudly Sponsered By</h4>
+    <footer class="bg-signature-blue-dark text-white text-center py-8">
+        <div class="container mx-auto px-6">
+            <h4 class="text-3xl font-bold mb-6">Our Proud Sponsors</h4>
             <div class="footer-logo-marquee">
                 <div class="logo-track">
                     <img src="images/anushaLogo.jpg" alt="Anusha Logo" class="footer-logo">
@@ -405,6 +434,16 @@
             <p class="mt-8 text-xl">&copy; 2025 JNTUH Global Alumni Meet. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <div id="event-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center">
+        <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+            <h2 class="text-2xl font-bold mb-4">About DJGAM 2025</h2>
+            <p class="text-gray-700">
+                Join us for the Diamond Jubilee and JNTUH Global Alumni Meet 2025! This event is a celebration of our shared journey and a tribute to the vibrant community of JNTUH-UCESTH alumni. It will feature interactive sessions, cultural programs, and numerous networking opportunities.
+            </p>
+            <button id="close-modal" class="mt-6 bg-signature-blue text-white font-bold py-2 px-4 rounded-full hover:bg-blue-700 transition duration-300">Close</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

@@ -153,3 +153,72 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const logoLink = document.getElementById('logo-link');
+    const eventModal = document.getElementById('event-modal');
+    const closeModal = document.getElementById('close-modal');
+
+    logoLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        eventModal.classList.remove('hidden');
+    });
+
+    closeModal.addEventListener('click', () => {
+        eventModal.classList.add('hidden');
+    });
+
+    eventModal.addEventListener('click', (e) => {
+        if (e.target === eventModal) {
+            eventModal.classList.add('hidden');
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburgerButton = document.getElementById('hamburger-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const logo = document.getElementById('logo');
+
+    hamburgerButton.addEventListener('click', () => {
+        const isExpanded = hamburgerButton.getAttribute('aria-expanded') === 'true';
+        hamburgerButton.setAttribute('aria-expanded', !isExpanded);
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    logo.addEventListener('click', () => {
+        const duration = 5 * 1000;
+        const animationEnd = Date.now() + duration;
+        const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 9999 };
+
+        function randomInRange(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        const interval = setInterval(function() {
+            const timeLeft = animationEnd - Date.now();
+
+            if (timeLeft <= 0) {
+                return clearInterval(interval);
+            }
+
+            const particleCount = 50 * (timeLeft / duration);
+            confetti({
+                ...defaults,
+                particleCount,
+                origin: { x: Math.random(), y: Math.random() - 0.2 }
+            });
+        }, 250);
+    });
+
+    // Preloader logic
+    const preloader = document.getElementById('preloader');
+    setTimeout(() => {
+        if (preloader) {
+            preloader.classList.add('preloader-hidden');
+            preloader.addEventListener('transitionend', () => {
+                preloader.style.display = 'none';
+            });
+        }
+    }, 1500);
+});
