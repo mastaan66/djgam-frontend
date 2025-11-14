@@ -413,7 +413,7 @@ footer.bg-signature-blue-dark { background-color: var(--signature-blue-dark); }
     height: 100%;
     object-fit: cover;
     opacity: 0;
-    animation: image-fade 2s infinite;
+    animation: image-fade 3s infinite;
 }
 
 .preloader-images img:nth-child(1) { animation-delay: 0s; }
