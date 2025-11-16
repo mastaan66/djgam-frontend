@@ -222,3 +222,40 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, 1500);
 });
+
+document.getElementById("logo").addEventListener("click", function () {
+    // Burst confetti (macOS style)
+    confetti({
+        particleCount: 200,
+        spread: 90,
+        startVelocity: 45,
+        gravity: 0.7,
+        origin: { y: 0.6 }
+    });
+
+    // Additional burst (like macOS celebration)
+    setTimeout(() => {
+        confetti({
+            particleCount: 150,
+            spread: 120,
+            startVelocity: 55,
+            gravity: 0.6,
+            origin: { y: 0.4 }
+        });
+    }, 300);
+
+    // small sparkle shots
+    let duration = 1200; 
+    let end = Date.now() + duration;
+
+    (function randomShot() {
+        confetti({
+            particleCount: 10,
+            angle: Math.random() * 360,
+            spread: 360,
+            origin: { x: Math.random(), y: Math.random() * 0.5 }
+        });
+
+        if (Date.now() < end) requestAnimationFrame(randomShot);
+    })();
+});
