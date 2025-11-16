@@ -180,10 +180,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenu = document.getElementById('mobile-menu');
     const logo = document.getElementById('logo');
 
-    hamburgerButton.addEventListener('click', () => {
+    hamburgerButton.addEventListener('click', (e) => {
+        e.stopPropagation(); // Stop the click from bubbling up to the document
         const isExpanded = hamburgerButton.getAttribute('aria-expanded') === 'true';
         hamburgerButton.setAttribute('aria-expanded', !isExpanded);
         mobileMenu.classList.toggle('hidden');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!mobileMenu.contains(e.target) && !hamburgerButton.contains(e.target)) {
+            mobileMenu.classList.add('hidden');
+            hamburgerButton.setAttribute('aria-expanded', 'false');
+        }
     });
 
     logo.addEventListener('click', () => {
